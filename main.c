@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:32:33 by dojannin          #+#    #+#             */
-/*   Updated: 2022/06/30 19:00:31 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/01 17:26:31 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,16 +165,10 @@ int	check_order(list *l)
 			return (123);
 			if ((tmp->data > tmp->next->data) && (tmp->next->data < tmp->next->next->data)
 		&& (tmp->data < tmp->next->next->data))
-		{
-			printf("213\n");
 			return (213);
-		}
 			if ((tmp->data < tmp->next->data) && (tmp->next->data > tmp->next->next->data)
 		&& (tmp->data > tmp->next->next->data))
-		{
-			printf("231\n");
 			return (231);
-		}
 			if ((tmp->data > tmp->next->data) && (tmp->next->data < tmp->next->next->data)
 		&& (tmp->data > tmp->next->next->data))
 			return (312);
@@ -195,7 +189,6 @@ void	case_123(list **l)
 
 	tp = 0;
 	tmp = *l;
-	printf("f\n");
 	while (tmp)
 	{
 		if ((tmp->data < tmp->next->data) && (tmp->next->data < tmp->next->next->data)
@@ -219,8 +212,8 @@ void	case_213(list *l)
 	{
 		i = return_data(tmp, 0);
 		j = return_data(tmp, 1);
-		change_data(l, 0, j);
-		change_data(l, 1, i);
+		change_data(&l, 0, j);
+		change_data(&l, 1, i);
 	}
 }
 
@@ -237,22 +230,22 @@ void	case_231(list *l)
 	{
 		i = return_data(tmp, 0);
 		j = return_data(tmp, 2);
-		change_data(l, 0, j);
-		change_data(l, 2, i);
+		change_data(&l, 0, j);
+		change_data(&l, 2, i);
 		i = return_data(tmp, 1);
 		j = return_data(tmp, 2);
-		change_data(l, 1, j);
-		change_data(l, 2, i);
+		change_data(&l, 1, j);
+		change_data(&l, 2, i);
 	}
 }
 
-void	case_312(list *l)
+void	case_312(list **l)
 {
 	list	*tmp;
 	int		i;
 	int		j;
 
-	tmp = l;
+	tmp = *l;
 	i = 0;
 	j = 0;
 	if (ft_lstsize(tmp) == 3 && (check_order(tmp) == 312))
@@ -281,8 +274,8 @@ void	case_321(list *l)
 	{
 		i = return_data(tmp, 0);
 		j = return_data(tmp, 2);
-		change_data(l, 0, j);
-		change_data(l, 2, i);
+		change_data(&l, 0, j);
+		change_data(&l, 2, i);
 	}
 }
 
@@ -295,7 +288,6 @@ void	case_132(list **l)
 	tmp = *l;
 	i = 0;
 	j = 0;
-	printf("g");
 	if (tmp && ft_lstsize(tmp) == 3 && (check_order(tmp) == 132))
 	{
 		i = return_data(tmp, 1);
@@ -303,7 +295,6 @@ void	case_132(list **l)
 		change_data(l, 1, j);
 		change_data(l, 2, i);
 	}
-
 }
 
 void	rra(list *l)
@@ -316,12 +307,12 @@ void	rra(list *l)
 	j = 0;
 	i = return_data(tmp, 0);
 	j = return_data(tmp, 2);
-	change_data(l, 0, j);
-	change_data(l, 2, i);
+	change_data(&l, 0, j);
+	change_data(&l, 2, i);
 	i = return_data(tmp, 1);
 	j = return_data(tmp, 2);
-	change_data(l, 1, j);
-	change_data(l, 2, i);
+	change_data(&l, 1, j);
+	change_data(&l, 2, i);
 	write(1, "rra\n", 4);
 }
 
@@ -330,20 +321,16 @@ void	ft_case(list **l)
 	list	*tmp;
 
 	tmp = *l;
-	printf("%d\n", check_order(tmp));
-	if (check_order(tmp) == 123) {
-			printf("p\n");
-			case_123(*l);
-			printf("g\n");
-	}
+	if (check_order(tmp) == 123)
+			case_123(l);
 	if (check_order(tmp) == 132)
-		case_132(*l);
+		case_132(l);
 	else if (check_order(tmp) == 213)
 		case_213(tmp);
 	else if (check_order(tmp) == 231)
 		case_231(*l);
 	else if (check_order(tmp) == 312)
-		case_312(tmp);
+		case_312(&tmp);
 	else if (check_order(tmp) == 321)
 		case_321(tmp);
 }
