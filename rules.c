@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rules.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/29 11:32:33 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/02 16:34:45 by dojannin         ###   ########.fr       */
+/*   Created: 2022/07/02 15:54:48 by dojannin          #+#    #+#             */
+/*   Updated: 2022/07/02 16:23:10 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+void	rra(list *l)
 {
-	list	*la;
-	int		i;
 	list	*tmp;
-
-	i = 1;
-	// la = malloc(sizeof(list));
-	if (ac == 0)
-		return (0);
-	while (av[i])
-	{
-		tmp = malloc_cell(ft_atoi(av[i]), i - 1);
-		ft_lstadd_back(&la, tmp);
-		// printf("LA->pos = %d\n", tmp->pos);
-		// printf("LA->data = %d\n", tmp->data);
-		i++;
-	}
-	ft_case(&la);
-	afficheList(la);
-	return (0);
+	int		i;
+	int		j;
+	
+	i = 0;
+	j = 0;
+	tmp = NULL;
+	i = return_data(tmp, 0);
+	j = return_data(tmp, 2);
+	change_data(&l, 0, j);
+	change_data(&l, 2, i);
+	i = return_data(tmp, 1);
+	j = return_data(tmp, 2);
+	change_data(&l, 1, j);
+	change_data(&l, 2, i);
+	write(1, "rra\n", 4);
 }
