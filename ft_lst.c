@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 15:49:00 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/02 15:51:15 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/04 16:59:10 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_lstsize(list *lst)
 	return (i);
 }
 
-list	*malloc_cell(int data, int pos)
+list	*malloc_cell(int data)
 {
 	list	*new;
 
@@ -35,7 +35,7 @@ list	*malloc_cell(int data, int pos)
 	//if (!new)
 	//	return ;
 	new->data = data;
-	new->pos = pos;
+	//new->pos = pos;
 	new->next = NULL;
 	return (new);
 }
@@ -71,4 +71,13 @@ void	ft_lstadd_back(list **lst, list *new)
 			tmp = tmp->next;
 		tmp->next = new;
 	}
+}
+
+list	*ft_lstlast(list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
