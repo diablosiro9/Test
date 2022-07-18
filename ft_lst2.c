@@ -6,13 +6,13 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 16:50:43 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/04 19:21:56 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/14 16:51:25 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_front(list **lst, list *new)
+list	**ft_lstadd_front(list **lst, list *new)
 {
 	if (!*lst)
 		*lst = new;
@@ -21,6 +21,7 @@ void	ft_lstadd_front(list **lst, list *new)
 		new->next = *lst;
 		*lst = new;
 	}
+	return (lst);
 }
 
 void	ft_lstdeletelast(list *lst)
@@ -42,15 +43,16 @@ void	ft_lstdeletelast(list *lst)
 	temp->next = NULL;
 }
 
-void	ft_lstdeletefirst(list **lst)
+void	ft_lstdeletefirst(list **l)
 {
 	list	*tmp;
 
 	tmp = NULL;
-	if (lst == NULL || *lst == NULL)
+	if (l == NULL || *l == NULL)
 		return ;
-	tmp = *lst;
-	*lst = (*lst)->next;
+	tmp = *l;
+//	tmp = tmp->next;
+	*l = (*l)->next;
+//	tmp->next = NULL;
 	free(tmp);
-	tmp = NULL;
 }

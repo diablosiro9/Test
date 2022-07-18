@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 16:54:58 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/06 22:51:13 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:39:03 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,67 +18,103 @@ void	condi(list **la,list **lb)
 	list	*tmp2;
 
 	tmp = (*la);
+	if (!tmp)
+		return ;
 	tmp2 = (*lb);
+	if (ft_lstsize(tmp) == 0)
+		return ;
 	if (ft_lstsize(tmp) == 3)
 	{
+		printf("CONDI : case three\n");
 		ft_case_three(&tmp);
 		//	printf("Dodo %d\n = ", tmp->data);
 	}
-	else if (ft_lstsize(tmp) == 5)
+	if (ft_lstsize(tmp) == 5)
 	{
-		ft_case_five(&tmp, &tmp2);
+		printf("CONDI : case five\n");
+		ft_case_five(la, lb);
+	//	push_min_four(&tmp, &tmp2);
 	}/*
-	else if (ft_lstzie(l) == 100)
+	else if (ft_lstsize(tmp) == 4)
 	{
-		do_hundred();
+		push_min_four(la, lb);
+	}*/
+	else if (ft_lstzie(tmp) == 100)
+	{
+		ft_case_hundred(la, lb);
 	}
-	else if (ft_lstsize(l) == 500)
+	else if (ft_lstsize(la) == 500)
 	{
 	}
 	*/
 }
 
-int	max_int(list *l)
+int	dist_top_bottom(list **la, int min)
 {
-	int	i;
-	int	j;
 	list	*tmp;
+	int		i;
+	int		j;
 
-	i = 0;
-	j = l->data;
-	tmp = l;
-	while (tmp)
+	tmp = *la;
+	i = min;
+	j = 0;
+	if (ft_lstsize(tmp) != 0)
 	{
-		i = tmp->data;
-		if (i > j)
-			j = i;
-		i = 0;
-		tmp = tmp->next;
+		j = i;
+		if (i == 0)
+		{
+			printf("Case 0\n");
+			//return (i); 
+		}
+		if (i < (ft_lstsize(tmp) / 2))
+		{
+			//j = (ft_lstsize(tmp) / 2) - i;
+			printf("Case 1 = %d\n", j);
+			while (i)
+			{
+				ra(la);
+				i--;
+			}
+		}
+		else if (i >= (ft_lstsize(tmp) / 2))
+		{
+			j = (ft_lstsize(tmp) - 1) - i;
+			printf("Case 2 = %d\n", j);
+			while (i)
+			{
+				rra(la);
+				i--;
+			}
+		}
 	}
-	//printf("%d", j);
 	return (j);
 }
 
-int	min_int(list *l)
+int	second_first_min(list **la)
 {
 	int 	i;
 	int		j;
+	int		k;
 	list	*tmp;
 
-	i = 0;
-	j = l->data;
-	tmp = l;
+	i = min_int(*la);
+//	if ((*l) == NULL) 
+//		return (0);
+	j = 0;
+	tmp = (*la);
+	k = tmp->data;
+//	printf("Mehdi = %d\n", tmp->data);
 	while (tmp)
 	{
-		i = tmp->data;
-		if (i < j)
-			j = i;
+		j = tmp->data;
+		if (j > i && j < k)
+			k = j;
 		tmp = tmp->next;
 	}
-	return (j);	
+	return (k);	
 }
 
-int	pos_max_cell(list *l)
+int	pos_second_min(list *l)
 {
 	int		i;
 	list	*tmp;
@@ -88,35 +124,7 @@ int	pos_max_cell(list *l)
 	while (tmp)
 	{
 		//printf("test\n");
-		if (tmp->data == max_int(tmp))
-		{	
-		//	printf("caca\n");
-		//	return (i);
-		//	printf("i = %d\n", i);
-			return (i);
-		}
-		else
-		{
-			tmp = tmp->next;
-			//printf("%d\n", i);
-		}
-		i++;
-	}
-//	printf("%d\n", i);
-	return (i);
-}
-
-int	pos_min_cell(list *l)
-{
-	int		i;
-	list	*tmp;
-
-	i = 0;
-	tmp = l;
-	while (tmp)
-	{
-	//	printf("test\n");
-		if (tmp->data == min_int(tmp))
+		if (tmp->data == second_first_min(&l))
 		{	
 		//	printf("caca\n");
 		//	return (i);
@@ -132,4 +140,15 @@ int	pos_min_cell(list *l)
 	}
 //	printf("Pos min cell = %d", i);
 	return (i);
+}
+
+void	compare_two_first(list **la)
+{
+	list	*tmp;
+	int		i;
+	int		j;
+
+	tmp = (*la);
+	i = dist_top_bottom(&tmp, min_int(tmp));
+	j = dist_top_bottom(&tmp, second_first_min(&tmp));
 }

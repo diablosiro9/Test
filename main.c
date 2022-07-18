@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:32:33 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/06 22:52:07 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:36:13 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int ac, char **av)
 
 	i = 1;
 	// la = malloc(sizeof(list));
-	if (ac == 0)
+	if (ac == 0 || ac == 1)
 		return (0);
 	while (av[i])
 	{
@@ -32,21 +32,40 @@ int main(int ac, char **av)
 		i++;
 	}
 	//afficheList(la);
-	printf("Min int = %d\n", min_int(la));
-	printf("Max int = %d\n\n", max_int(la));
-	printf("Pos min = %d\n", pos_min_cell(la));
-	printf("Pos max = %d\n\n", pos_max_cell(la));
-	printf("----> Apres condi\n");
+	//printf("Min int = %d\n", min_int(la));
+	//printf("Max int = %d\n\n", max_int(la));
+//	printf("Pos min = %d\n", pos_min_cell(la));
+//	printf("Pos sec min = %d\n", pos_second_min(la));
+//	printf("Second first min = %d\n", second_first_min(&la));
+	//printf("Pos max = %d\n\n", pos_max_cell(la));
+	//printf("----> Apres condi\n");
+	//afficheList(lb);
+//	rra(&la);
+//	rra(&la);
+//	rra(&la);
+//	rra(&la);
+//	rra(&la);
+//	pb(&lb, &la);
+//	pb(&lb, &la);
+//	pb(&lb, &la);
+//	pb(&lb, &la);
+//	push_min_five(&la, &lb);
+//	push_min_four(&la, &lb);
+//	ft_case_three(&la);
+//	printf("Dist TOP orr Bottom = %d\n", dist_top_bottom(&la, pos_min_cell(la)));
 	condi(&la, &lb);
-	printf("Pos min = %d\n", pos_min_cell(la));
-	printf("Pos max = %d\n", pos_max_cell(la));
+	//printf("Pos min = %d\n", pos_min_cell(la));
+	//printf("Pos max = %d\n", pos_max_cell(la));
 	//pb(&lb, &la);
 	//printf("Int max = %d\n", max_int(la));
 	//afficheList(la);
 	//rra(&la);
+	//afficheList(lb);
+	//afficheList(la);
+	printf("La --> \n");
 	afficheList(la);
-	printf("LB --> ");
+	printf("LB --> \n");
 	afficheList(lb);
 	//system("leaks push_swap");
 	//return (0);
-}
+}   

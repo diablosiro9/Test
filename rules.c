@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 15:54:48 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/06 22:50:10 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/13 19:43:28 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	pa(list **la, list **lb)
 	tmp = malloc_cell((*lb)->data);
 	ft_lstdeletefirst(lb);
 	ft_lstadd_front(la, tmp);
-	write(1, "pb\n", 3);
+	write(1, "pa\n", 3);
 }
 
 void	pb(list **lb, list **la)

@@ -6,7 +6,7 @@
 #    By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 16:02:58 by dojannin          #+#    #+#              #
-#    Updated: 2022/07/04 16:59:57 by dojannin         ###   ########.fr        #
+#    Updated: 2022/07/18 15:21:53 by dojannin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS = rules.c \
 		main.c \
 		utils.c \
 		utils2.c \
+		utils3.c \
 
 $(NAME):		$(OBJ)
 						gcc ${CFLAGS} $(OBJ) -o $(NAME)

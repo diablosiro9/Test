@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:34:15 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/06 22:49:54 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:47:46 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int		check_order(list *l);
 int		return_data(list *l, int pos);
 void	change_data(list **l, int pos, int new);
 list	*ft_lstlast(list *lst);
-void	ft_lstadd_front(list **lst, list *new);
+list	**ft_lstadd_front(list **lst, list *new);
+void	ft_lstdeletefirst(list **lst);
 void	ft_lstdeletelast(list *lst);
 void	condi(list **la, list **lb);
 int		pos_max_cell(list *l);
@@ -52,10 +53,16 @@ int		max_int(list *l);
 int		min_int(list *l);
 void	pa(list **la, list **lb);
 void	pb(list **lb, list **la);
-void	ft_lstdeletefirst(list **lst);
 void	ft_case_five(list **la, list **lb);
 void	push_highest_five(list **la, list **lb);
+list	*push_min_five(list **la, list **lb);
+void	push_min_four(list **la, list **lb);
 void	sa(list **la);
 void	ra(list **l);
+int		dist_top_bottom(list **la, int min);
+int	second_first_min(list **la);
+int		pos_second_min(list *l);
+void	compare_two_first(list **la);
+void	ft_case_hundred(list **la, list **lb);
 
 #endif
