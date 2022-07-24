@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:34:15 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/18 15:47:46 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/23 21:24:17 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,16 @@ void	push_min_four(list **la, list **lb);
 void	sa(list **la);
 void	ra(list **l);
 int		dist_top_bottom(list **la, int min);
-int	second_first_min(list **la);
+int		second_first_min(list **la);
 int		pos_second_min(list *l);
-void	compare_two_first(list **la);
+void	compare_two_first(list **la, list **lb);
 void	ft_case_hundred(list **la, list **lb);
+int		check_sort(list *l);
+void	ft_case_two(list **l);
+void	rrb(list **l);
+void	rb(list **l);
+int		less_range(list **l, int max, int min);
+int		range_actu(list *l, int max);
+void	sort_range(list **la, list **lb);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 15:54:48 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/13 19:43:28 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/22 05:54:46 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,28 @@ void	pb(list **lb, list **la)
 	tmp = malloc_cell((*la)->data);
 	ft_lstdeletefirst(la);
 	ft_lstadd_front(lb, tmp);
+	printf("Valeur pb --> %d     ", tmp->data);
 	write(1, "pb\n", 3);
+}
+
+void	rb(list **l)
+{	
+	list *tmp;
+
+	tmp = malloc_cell((*l)->data);
+	ft_lstdeletefirst((l));
+	ft_lstadd_back(l, tmp);
+	write(1, "ra\n", 3);
+	//free(tmp);
+}
+
+void	rrb(list **l)
+{
+	list	*tmp;
+	//list	*tmp2 = NULL;
+
+	tmp = malloc_cell(ft_lstlast(*l)->data);
+	ft_lstdeletelast(*l);
+	ft_lstadd_front(l, tmp);
+	write(1, "rra\n", 4);
 }

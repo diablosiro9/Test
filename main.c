@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 11:32:33 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/18 15:36:13 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/19 14:45:22 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ int main(int ac, char **av)
 		i++;
 	}
 	//afficheList(la);
-	//printf("Min int = %d\n", min_int(la));
+//	printf("Min int = %d\n", min_int(la));
 	//printf("Max int = %d\n\n", max_int(la));
 //	printf("Pos min = %d\n", pos_min_cell(la));
 //	printf("Pos sec min = %d\n", pos_second_min(la));
 //	printf("Second first min = %d\n", second_first_min(&la));
+//	compare_two_first(&la, &lb);
 	//printf("Pos max = %d\n\n", pos_max_cell(la));
 	//printf("----> Apres condi\n");
 	//afficheList(lb);

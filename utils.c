@@ -6,7 +6,7 @@
 /*   By: dojannin <dojannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 15:47:07 by dojannin          #+#    #+#             */
-/*   Updated: 2022/07/02 16:25:04 by dojannin         ###   ########.fr       */
+/*   Updated: 2022/07/20 22:40:31 by dojannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ int	ft_atoi(char const *s)
 
 void	afficheList(list *l)
 {
-	list	*tmp = l;
+	list	*tmp = (l);
 
+	if (!tmp)
+		return ;
 	while (tmp != NULL)
 	{
 		printf("%d\n", tmp->data);
